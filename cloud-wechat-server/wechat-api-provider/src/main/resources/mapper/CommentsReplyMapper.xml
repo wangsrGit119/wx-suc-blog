@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wangsr.dao.mapper.CommentsReplyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.wangsr.model.po.CommentsReply">
+        <id column="id" property="id" />
+        <result column="comments_id" property="commentsId" />
+        <result column="reply_id" property="replyId" />
+        <result column="reply_type" property="replyType" />
+        <result column="content" property="content" />
+        <result column="from_uid" property="fromUid" />
+        <result column="to_uid" property="toUid" />
+        <result column="create_time" property="createTime" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="delete_status" property="deleteStatus" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, comments_id, reply_id, reply_type, content, from_uid, to_uid, create_time, modify_time, delete_status
+    </sql>
+
+</mapper>

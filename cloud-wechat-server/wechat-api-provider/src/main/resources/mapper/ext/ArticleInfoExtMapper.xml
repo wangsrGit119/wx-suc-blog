@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wangsr.dao.mapper.ext.ArticleInfoExtMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.wangsr.model.ext.ArticleExtInfo">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="title" property="title" />
+        <result column="content" property="content" />
+        <result column="cover_image_url" property="coverImageUrl" />
+        <result column="audit_status" property="auditStatus" />
+        <result column="parse_type" property="parseType" />
+        <result column="read_count" property="readCount" />
+        <result column="praise_count" property="praiseCount" />
+        <result column="belongs_type" property="belongsType" />
+        <result column="create_time" property="createTime" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="delete_status" property="deleteStatus" />
+        <result column="total" property="total" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, title, content, cover_image_url, audit_status, parse_type, read_count, praise_count, belongs_type, create_time, modify_time, delete_status
+    </sql>
+
+
+    <select id="queryExcellentArticle"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />,
+       (praise_count + read_count) as total
+        FROM
+        article_info AS ai
+        WHERE
+        ai.delete_status = 0 and ai.belongs_type = 2
+        ORDER BY
+        total DESC
+        LIMIT 0,3
+
+    </select>
+
+    <select id="getStatisticResult" resultType="cn.wangsr.model.ext.StatisticInfo">
+    SELECT
+        dv.days dayEach,
+        COALESCE ( ai.article_total, 0 ) articleTotal,
+        COALESCE ( bui.user_total, 0 ) userTotal
+    FROM
+        (
+        SELECT
+            @cdate := date_add( @cdate, INTERVAL - 1 DAY ) days
+        FROM
+            ( SELECT @cdate := date_add( CURDATE(), INTERVAL + 1 DAY ) FROM date_virtual LIMIT 0, 7 ) date_table
+        ) dv
+        LEFT JOIN ( SELECT COUNT(*) article_total, DATE( create_time ) time_day FROM article_info GROUP BY time_day ) ai ON dv.days = ai.time_day
+        LEFT JOIN ( SELECT COUNT(*) user_total, DATE( create_time ) time_day FROM base_user_info GROUP BY time_day ) bui ON dv.days = bui.time_day
+         ORDER BY
+	     dayEach DESC
+    </select>
+
+
+    <select id="getTimerLineById" resultType="cn.wangsr.model.ext.UserTimerLine" parameterType="java.lang.Integer">
+
+    SELECT
+        bui.id uid,
+        bui.create_time registerTime,
+        ai.title articleTitle,
+        ai.create_time firstArticlePubTime,
+        ac.content comments,
+        ac.create_time firstCommentTime
+    FROM
+        base_user_info bui
+        LEFT JOIN ( SELECT user_id, title, create_time FROM article_info WHERE user_id = #{userId} ORDER BY create_time ASC LIMIT 1 ) ai ON ai.user_id = bui.id
+        LEFT JOIN ( SELECT from_uid, content, create_time FROM article_comments WHERE from_uid = #{userId} ORDER BY create_time ASC LIMIT 1 ) ac ON ac.from_uid = bui.id
+    WHERE
+	bui.id = #{userId}
+
+    </select>
+
+
+</mapper>

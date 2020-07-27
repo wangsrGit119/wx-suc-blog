@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wangsr.dao.mapper.BaseUserInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.wangsr.model.po.BaseUserInfo">
+        <id column="id" property="id" />
+        <result column="nick_name" property="nickName" />
+        <result column="user_name" property="userName" />
+        <result column="email" property="email" />
+        <result column="pwd" property="pwd" />
+        <result column="open_id" property="openId" />
+        <result column="gender" property="gender" />
+        <result column="avatar_url" property="avatarUrl" />
+        <result column="country" property="country" />
+        <result column="province" property="province" />
+        <result column="city" property="city" />
+        <result column="create_time" property="createTime" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="delete_status" property="deleteStatus" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, nick_name, user_name, email, pwd, open_id, gender, avatar_url, country, province, city, create_time, modify_time, delete_status
+    </sql>
+
+</mapper>

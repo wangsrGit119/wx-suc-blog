@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wangsr.dao.mapper.CommunityFeedBackMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.wangsr.model.po.CommunityFeedBack">
+        <id column="id" property="id" />
+        <result column="details" property="details" />
+        <result column="user_id" property="userId" />
+        <result column="replay_content" property="replayContent" />
+        <result column="replay" property="replay" />
+        <result column="create_time" property="createTime" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="delete_status" property="deleteStatus" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, details, user_id, replay_content, replay, create_time, modify_time, delete_status
+    </sql>
+
+</mapper>
