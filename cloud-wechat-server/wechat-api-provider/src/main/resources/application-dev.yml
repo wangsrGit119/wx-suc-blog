@@ -56,13 +56,13 @@ mybatis-plus:
 # 阿里oss
 oss:
   endpoint: oss-cn-beijing.aliyuncs.com
-  accessKeyId: LTAI4FqQmsssssjDofWucaKeUw7Np
-  accessKeySecret: H4CkvsssssssStOknEdu7aQdlQFkfFuNzcrEN
+  accessKeyId: LTAI4weweucaKeUw7Np
+  accessKeySecret: H4CkvsssssssStOfFuNzcrEN
   bucketName: wangsr-oss-files
   folder: images/
 
 ##wx小程序
 wx:
-  appId: wx98e9bd433132s8790
-  secret: 839f5d3644b2cs23ad49eb7182f7f1135
+  appId: 23243545
+  secret: 5676766666666666666
 
