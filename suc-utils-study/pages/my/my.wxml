@@ -1,0 +1,123 @@
+<!--pages/my/my.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{false}}">
+	<view slot="backText">返回</view>
+	<view slot="content">个人主页</view>
+</cu-custom>
+<!-- 轻提示 -->
+<van-toast id="van-toast" />
+<!-- 对话框  -->
+<van-dialog id="van-dialog" />
+<!-- 邮箱设置对话框 -->
+<van-dialog
+  use-slot
+  title="邮箱编辑"
+  show="{{ emailDshow }}"
+  show-cancel-button
+  zIndex="50"
+  bind:close="onEmailClose"
+>
+
+<!-- 邮箱 -->
+<van-field
+    value="{{ userEmail }}"
+    placeholder="请输入邮箱"
+    border="{{ false }}"
+    bind:change="onChange"
+    zIndex="90"
+    bind:change="onEmailChange"
+    icon="question-o"
+    bind:click-icon="onClickIconForEmail"
+  />
+<!-- 邮箱验证 -->
+  <van-field
+    value="{{ emailCode }}"
+    center
+    clearable
+    label="邮箱验证"
+    placeholder="输入验证码"
+    border="{{ false }}"
+    bind:change="onEmailCodeChange"
+    use-button-slot
+  >
+    <van-button slot="button" size="small" type="primary" bindtap="onBindingEmail">获取</van-button>
+  </van-field>
+</van-dialog>
+<!-- 我的个人信息回显  顶部 -->
+  <view class='my-info'>  
+  <van-row> 
+      <view 
+          class="cu-avatar round xl" 
+          style="background-image:url({{userInfo.avatarUrl}});">
+        <view class="cu-tag badge {{userInfo.gender==2?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}">
+        </view>
+      </view>
+  </van-row>
+  <van-row>{{userInfo.nickName}}</van-row>
+   
+    <!-- 需要使用 button 来授权登录 -->
+      <button 
+      wx:if="{{userInfo === null}}" 
+      open-type="getUserInfo" 
+      style="width:100px;color:blue;border-radius:50px;"
+      bindgetuserinfo="bindGetUserInfo">授权登录</button>
+    
+      <van-button
+      wx:if="{{(userInfo !== null && loginStatus === false) || (userInfo !== null && userId ===null) }}" 
+       open-type="getUserInfo" 
+       loading="{{buttonLoading}}" 
+       round
+       type="info" 
+       custom-style="width:120px;height:40px;text-align:center"
+       bind:getuserinfo	="bindGetUserInfo"
+       loading-text="登录中" >登录</van-button>
+  
+</view>
+<view class="other-me">
+  <van-cell
+  wx:if="{{userId !== null}}" 
+  icon="records"
+  title="我的文章"
+  url="/pages/myarticle/myarticle" 
+  is-link
+  value="" />
+<van-cell
+  wx:if="{{userId === null}}" 
+  icon="records"
+  title="我的文章"
+  is-link
+  value="未登录" />
+
+  <van-cell 
+  icon="chat-o"
+  title="最新评论"
+  is-link 
+  value="0" />
+  <van-field
+    value="{{ 100 }}"
+    disabled
+    left-icon="vip-card-o"
+    label="活跃积分"
+    icon="question-o"
+    bind:click-icon="onClickIconForVip"
+  />
+<van-cell 
+  icon="smile-comment-o"
+  title="苏克推送" 
+  is-link
+  value="无" />
+  <!-- 邮箱为空时显示绑定邮箱 不空时显示邮箱 -->
+  <van-cell wx:if="{{userEmail === null}}"
+  icon="eye-o"
+  title="隐私设置" 
+  is-link
+  bind:click="onEmailToShow"
+  value="绑定邮箱" />
+  <van-cell wx:if="{{userEmail !== null}}"
+  icon="eye-o"
+  title="隐私设置" 
+  is-link
+  bind:click="onEmailToShow"
+  value="{{userEmail}}" />
+</view>
+
+

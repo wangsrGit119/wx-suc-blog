@@ -1,0 +1,85 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/community/community",
+    "pages/articles/articles",
+    "pages/my/my",
+    "pages/timeline/timeline",
+    "pages/excellent/excellent",
+    "pages/feedback/feedback",
+    "pages/knowloage/knowloage",
+    "pages/newstart/newstart",
+    "pages/cover-img/cover-img",
+    "pages/myarticle/myarticle"
+  ],
+  "window": {
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/home.png",
+        "selectedIconPath": "image/home-active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/excellent/excellent",
+        "iconPath": "image/footer-icon-02.png",
+        "selectedIconPath": "image/footer-icon-02-active.png",
+        "text": "精选"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "iconPath": "image/footer-icon-03.png",
+        "selectedIconPath": "image/footer-icon-03-active.png",
+        "text": "星球"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "image/footer-icon-04.png",
+        "selectedIconPath": "image/footer-icon-04-active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-icon": "./components/vant/dist/icon/index",
+    "van-search": "./components/vant/dist/search/index",
+    "van-notice-bar": "./components/vant/dist/notice-bar/index",
+    "van-divider": "./components/vant/dist/divider/index",
+    "van-grid": "./components/vant/dist/grid/index",
+    "van-grid-item": "./components/vant/dist/grid-item/index",
+    "van-panel": "./components/vant/dist/panel/index",
+    "van-button": "./components/vant/dist/button/index",
+    "van-row": "./components/vant/dist/row/index",
+    "van-col": "./components/vant/dist/col/index",
+    "van-field": "./components/vant/dist/field/index",
+    "van-nav-bar": "./components/vant/dist/nav-bar/index",
+    "van-tag": "./components/vant/dist/tag/index",
+    "van-tabbar": "./components/vant/dist/tabbar/index",
+    "van-tabbar-item": "./components/vant/dist/tabbar-item/index",
+    "van-loading": "./components/vant/dist/loading/index",
+    "van-toast": "./components/vant/dist/toast/index",
+    "van-cell": "./components/vant/dist/cell/index",
+    "van-cell-group": "./components/vant/dist/cell-group/index",
+    "van-dialog": "./components/vant/dist/dialog/index",
+    "cu-custom": "./components/colorui/components/cu-custom",
+    "van-action-sheet": "./components/vant/dist/action-sheet/index",
+    "van-radio": "./components/vant/dist/radio/index",
+    "van-radio-group": "./components/vant/dist/radio-group/index",
+    "van-uploader": "./components/vant/dist/uploader/index",
+    "van-image": "./components/vant/dist/image/index"
+  }
+}

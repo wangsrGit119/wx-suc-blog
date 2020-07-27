@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{false}}">
+	<view slot="backText">返回</view>
+	<view slot="content">首页</view>
+</cu-custom>
+<van-notice-bar
+  left-icon="volume-o"
+  text="网络不是非法之地，请大家文明发言"
+/>
+
+<view class="all" >
+
+    <view class="top" >
+         <view class='nav-list'>
+            <navigator open-type="navigate" hover-class='none' url="/pages/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+              <text class="left nav-title">{{item.title}}</text>
+              <text class="right cuIcon-{{item.icon}}"></text>
+            </navigator>
+      </view>
+    </view>
+
+    <view class="charts-users">
+      <text>访问统计</text>
+      <canvas canvas-id="lineCanvas"
+      bindtouchstart="touchHandler"
+      disable-scroll="true" 
+      class="lineCanvas" 
+      ></canvas>
+    </view>
+</view>

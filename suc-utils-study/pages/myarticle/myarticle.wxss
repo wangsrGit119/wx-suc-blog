@@ -1,0 +1,9 @@
+/* pages/myarticle/myarticle.wxss */
+.article-card image{
+  height:70px; 
+  width:35vw;
+}
+
+.article-card van-card{
+  border: 4px solid rgb(194, 68, 173);
+}

@@ -1,0 +1,93 @@
+/* pages/articles/articles.wxss */
+
+/* 回到顶部 */
+.cover-view-top{
+  position: fixed;
+  top: 80%;
+  width: 100%;
+  text-align: center;
+  /* border: 1px solid red; */
+  opacity: 0.8;
+}
+/* 回到顶部图标 */
+.cover-view-top cover-image{
+  width: 35px;
+  height:35px;
+  background-color: palevioletred;
+  margin-left: 85%;
+  border-radius: 50px;
+}
+
+
+/* 文章下转发 评论 点赞栏目 */
+
+/* 评论框 */
+.comments{
+  padding-top:5px;
+  padding-left:7px;
+  margin-top:5px;
+  height: 10vh;
+  width: 70vw;
+  font-size: 12px;
+  border: 1px solid rgb(204, 199, 199);
+  border-radius: 15px;
+}
+/* 图标栏目 */
+.article-footer{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color:  white; 
+  box-shadow: 0px -10px 10px rgba(211, 200, 200, 0.9);
+  height:7vh;
+  text-align: left;
+  
+}
+/* 具体图标 */
+
+.btn-icon{
+  margin-bottom: 10px;
+}
+.input-comment{
+  margin:0px;
+  padding:4px;
+  position: absolute;
+  left:42px;
+  top:4px;
+  height: 40px;
+  width:70vw;
+  border:none;
+}
+.auth-header{
+  margin:0px;
+  padding:0px;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  left: 0;
+  border:1px solid rgb(206, 102, 197);
+
+}
+/**分享按钮**/
+.share-btn{
+  width: 20px;
+  height: 20px;
+  padding:0;
+  position: absolute;
+  background-size: 38rpx 36rpx;
+  background-repeat:no-repeat;
+  border:none;
+}
+.cu-list{
+  margin-bottom: 40px;
+}
+/**评论条数样式**/
+.commment-size-type{
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-bottom: 6px;
+}

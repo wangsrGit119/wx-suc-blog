@@ -1,0 +1,51 @@
+<!--pages/excellent/excellent.wxml-->
+<!-- 引入页面时间格式化工具 -->
+<wxs src="../../utils/dateutils.wxs" module="dateutils" />
+<cu-custom bgColor="bg-gradual-pink" isBack="{{false}}">
+	<view slot="backText">返回</view>
+	<view slot="content">精选</view>
+</cu-custom>
+
+<view class="cu-card case " wx:for="{{articleList}}" wx:key="index" >
+  <view class="cu-item shadow">
+    <view class="image" style="height:32vh;"
+>
+     <!-- 封面 绑定跳转-->
+      <image 
+      bindtap="onToArticlePage" 
+      data-article-id="{{item.id}}"
+      data-nick-name="{{item.nickName}}"
+      data-avatar-url="{{item.avatarUrl}}"
+      data-time="{{item.createTime}}"
+      data-uid="{{item.userId}}"
+      src="{{item.coverImageUrl}}" 
+      mode="widthFix"></image>
+      <!-- 普通贴 精华帖 类型展示 -->
+      <view class="cu-tag bg-blue">优质</view>
+      <view class="cu-bar bg-shadeBottom">
+         <!-- 标题 -->
+        <text class="text-cut">{{item.title}}</text>
+      </view>
+    </view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+       <!-- 发表文章用户头像 -->
+        <view class="cu-avatar round lg" style="background-image:url({{item.avatarUrl}});"></view>
+        <view class="content flex-sub">
+         <!-- 发表文章用户昵称 -->
+          <view class="text-grey">{{item.nickName}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            {{dateutils.dateTransfer(item.createTime)}}
+            <view class="text-gray text-sm">
+            <text class="cuIcon-likefill margin-lr-xs"></text> {{0}}
+              <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.readCount}}
+              <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.praiseCount}}
+              <text class="cuIcon-messagefill margin-lr-xs"></text> {{item.commentCount}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

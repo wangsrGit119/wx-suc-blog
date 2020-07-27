@@ -1,0 +1,37 @@
+<!--pages/newstart/newstart.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">苏克简介</view>
+</cu-custom>
+<view class="cu-bar bg-white solid-bottom item-title">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>基础
+  </view>
+</view>
+ <view class="item-body">
+    <view class="body-line">1.小程序UI组件库：colorUI、vant-weapp</view>
+    <view class="body-line">2.小程序后端语言：java</view>
+    <view class="body-line">3.markdown语法渲染组件：towxml</view>
+  </view>
+
+<view class="cu-bar bg-white solid-bottom item-title">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>注意事项
+  </view>
+</view>
+ <view class="item-body">
+    <view class="body-line">2.意见反馈：无法及时回复，但是回复后可以立马在意见反馈模块中查看</view>
+    <view class="body-line">3.评论发言：内容已接入敏感词校验接口，请文明交流</view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom item-title">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>文章封面
+  </view>
+</view>
+ <view class="item-body">
+    <view class="body-line">封面可以自己提供，如果有优秀封面可以在文章中上传，审核通过后可以作为公共模板，
+    </view>
+  </view>
+
+

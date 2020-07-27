@@ -1,0 +1,67 @@
+/**index.wxss**/
+.all{
+  width: 100%;
+  height:95vh;
+  /* border: 1px solid red; */
+}
+
+
+
+/* top设置 */
+.top {
+  margin-top:15px;
+  width:100%;
+  height: 40vh;
+ 
+  /* border: 1px solid rgb(55, 0, 255); */
+}
+/* navigator */
+.nav-list navigator{
+  width:95vw;
+  height: 10vh;
+  margin:10px auto 0 8px;
+  padding-left:5vw;
+  padding-top: 3vh;
+  box-shadow: 0 8px 16px 0 rgba(27, 1, 1, 0.39), 0 6px 20px 0 rgba(1, 2, 15, 0.384);
+  border-radius: 10px;
+}
+.nav-list .left{
+  font-size: 13px
+}
+.nav-list .right{
+   margin-left: 65vw;  
+}
+
+
+.one-left image {
+  width: 40px;
+  height:40px;
+  border: 3px solid rgb(51, 255, 0);
+}
+
+
+
+
+/* 统计图开始 */
+.charts-users{
+  padding-top: 20px;
+  font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 11px;
+  width: 95%;
+  height: 35vh;
+  text-align: center;
+  opacity: 0.7;
+  background-color: rgba(161, 112, 216, 0.493);
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px 0 rgba(27, 1, 1, 0.39), 0 6px 20px 0 rgba(1, 2, 15, 0.384);
+
+}
+.charts-users text{
+  font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.charts-users canvas{
+  width: 95%;
+  
+}
+/* 统计图结束 */

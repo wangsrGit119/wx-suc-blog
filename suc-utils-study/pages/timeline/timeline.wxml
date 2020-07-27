@@ -1,0 +1,27 @@
+<!--pages/timeline/timeline.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">时间轴</view>
+</cu-custom>
+<!-- 轻提示 -->
+<van-toast id="van-toast" />
+<view class="cu-timeline" wx:if="{{timerLineMap !== null}}" >
+  <!-- 时间线 -->
+  <view class="cu-item text-blue" wx:if="{{timerLineMap.firstArticlePubTime !== null}}">
+    <view class="content bg-blue shadow-blur">
+      <text>{{timerLineMap.firstArticlePubTime}}</text> 我发表了第一篇文章《{{timerLineMap.articleTitle}}》
+    </view>
+  </view>
+  <view class="cu-item text-grey" wx:if="{{timerLineMap.firstCommentTime !== null}}">
+    <view class="content bg-grey shadow-blur">
+     <text>{{timerLineMap.firstCommentTime}}</text> 我发表了第一次评论 ——“{{timerLineMap.comments}}”
+    </view>
+  </view>
+  <view class="cu-item text-grey " wx:if="{{timerLineMap.registerTime !== null}}">
+    <view class="content bg-blue shadow-blur">
+      <text>{{timerLineMap.registerTime}}</text> 今天是您来到这里的第一天哦^_^ , 
+      您是第{{timerLineMap.uid}}个苏克IT知识这个大家庭的成员，欢迎您的到来！
+    </view>
+  </view>
+ 
+</view>

@@ -1,0 +1,17 @@
+/* 进入发布页按钮 */
+.com-bottom{
+  width: 100%;
+  height:25px;
+  opacity: 0.7;
+  position: fixed;
+  bottom: 15px;
+  text-align: center;
+  padding: 5px;
+}
+ .com-bottom van-icon{
+  margin-left: 80%;
+ }
+/* 文章封面根部 */
+
+
+

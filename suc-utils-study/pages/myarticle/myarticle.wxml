@@ -1,0 +1,31 @@
+<!--pages/myarticle/myarticle.wxml-->
+<wxs src="../../utils/dateutils.wxs" module="dateutils" />
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">我的文章</view>
+</cu-custom>
+
+<view class="article-card">
+<van-card
+  wx:for="{{myAllArticle}}"
+  wx:key="{{index}}"
+  desc="发表日期: {{dateutils.dateTransfer(item.createTime)}}"
+  title="标题: {{item.title}}"
+  thumb="{{ item.coverImageUrl }}"
+  lazy-load="true"
+>
+  <view slot="footer">
+   <van-button type="warning" 
+   data-article-id="{{item.id}}"
+   data-nick-name="{{item.nickName}}"
+   data-avatar-url="{{item.avatarUrl}}"
+   data-time="{{item.createTime}}" 
+   data-uid="{{item.userId}}"
+   bindtap="onToDetailPage" round size="mini">详情</van-button>
+    <van-button type="danger" data-article-id="{{item.id}}" bindtap="deleteArticle" round size="mini">删除</van-button>
+  </view>
+</van-card>
+
+</view>
+
+

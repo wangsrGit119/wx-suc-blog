@@ -1,0 +1,40 @@
+<!--pages/feedback/feedback.wxml-->
+<wxs src="../../utils/dateutils.wxs" module="dateutils" />
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">社区问题反馈</view>
+</cu-custom>
+<!-- 轻提示 -->
+<van-toast id="van-toast" />
+<view class="feedback-area">
+ <textarea auto-focus="false" placeholder="请输入反馈信息" bindinput="onTextChange" >
+ 
+ </textarea>
+ <van-button class="subbuttom" round type="info"size="small"  bindtap="onSubmitFeedBack">提交</van-button>
+ </view>
+
+ <van-divider contentPosition="center" borderColor="#1989fa">近期反馈</van-divider>
+  <view class="cu-list menu-avatar comment solids-top">
+      <view class="cu-item" wx:for="{{feedbacks}}" wx:key="index">
+        <view class="cu-avatar round" style="background-image:url({{item.avatarUrl}});">
+        <view class="cu-tag badge {{item.gender==2?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+        </view>
+        <view class="content">
+          <view class="text-grey">{{item.nickName}}</view>
+          <view class="text-gray text-content text-df">
+           {{item.details}}
+          </view>
+          <!-- start reply -->
+          <view class="bg-gray padding-sm radius margin-top-sm  text-sm">
+            <view class="flex">
+              <view>suc：</view>
+              <view class="flex-sub">{{item.replayContent}}</view>
+             </view>
+          </view>
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">{{dateutils.dateTransfer(item.createTime)}}</view>
+          </view>
+          <!-- end reply-->
+        </view>
+      </view>
+    </view>

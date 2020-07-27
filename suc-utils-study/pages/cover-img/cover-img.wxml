@@ -1,0 +1,36 @@
+<!--pages/cover-img/cover-img.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">背景图片</view>
+</cu-custom>
+<!-- 导航 -->
+<van-nav-bar
+  right-text="保存"
+  bind:click-right="onClickRight"
+/>
+<!-- 轻提示 -->
+<van-toast id="van-toast" />
+<!-- 已有图片展示 -->
+<view>
+<van-image
+  wx:for="{{allImagesInfo}}"
+  wx:key="index"
+  width="8rem"
+  height="6rem"
+  src="{{item.fileUrl}}"
+  class="custom-class"
+/>
+</view>
+<view class="upload-bottom">
+<van-uploader
+  file-list="{{ fileList }}"
+  use-before-read
+  max-size="1048575"
+  max-count="1"
+  accept="file"
+  upload-text=""
+  bind:before-read="beforeUpload"
+  bind:after-read="afterUpload"
+/>
+</view>
+

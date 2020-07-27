@@ -1,0 +1,156 @@
+<!--pages/articles/articles.wxml-->
+<!-- 引入页面时间格式化工具 -->
+<wxs src="../../utils/dateutils.wxs" module="dateutils" />
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">文章详情</view>
+</cu-custom>
+<!-- 轻提示 -->
+<van-toast id="van-toast" />
+<import src="../../components/towxml/entry.wxml"/>
+<van-toast id="van-toast" />
+<!-- colorui -->
+<view class="cu-card dynamic ">
+  <view class="cu-item shadow">
+    <!-- 作者信息 -->
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+      <!-- 头像 -->
+        <view class="cu-avatar round lg" style="background-image:url({{authInfo.avatarUrl}});"></view>
+        <view class="content flex-sub">
+        <!-- 用户名 -->
+          <view>{{authInfo.nickName}}</view>
+          <!-- 发表日期 -->
+          <view class="text-gray text-sm flex justify-between">
+            {{dateutils.dateTransfer(authInfo.time)}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 文章标题 -->
+    <view class="text-content">
+      {{article.title}}
+    </view>
+    <view class="grid flex-sub padding-lr col-1">
+      <!-- 封面 -->
+      <view class="bg-img only-img" 
+      style="background-image:url({{article.coverImageUrl}});">
+      </view>
+      <!-- 具体内容 -->
+      <view id="article">
+        <template is="entry" data="{{...article.content}}"/>
+      </view>
+    </view>
+  <view class="commment-size-type" wx:if="{{commentSize ===0}}">暂无评论</view>
+  <view class="commment-size-type" wx:if="{{commentSize !==0}}">共{{commentSize}}条评论</view>
+    <view class="cu-list menu-avatar comment solids-top">
+        <!-- 评论展示区 -->
+      <view class="cu-item"  wx:for="{{comments}}" wx:key="index">
+        <view class="cu-avatar round" style="background-image:url({{item.avatarUrl}});">
+        <view class="cu-tag badge {{item.gender==2?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+        </view>
+         <view class="content">
+            <view class="text-grey">{{item.nickName}} </view>
+            <view class="text-gray text-content text-df">
+              {{item.content}}
+            </view>
+            <view class="margin-top-sm flex justify-between">
+              <view class="text-gray text-df">{{dateutils.dateTransfer(item.createTime)}}
+                <text
+                style="color:blue"
+                decode="{{true}}"
+                data-comment-id="{{item.id}}"
+                data-parent-user-info="{{item.nickName}}" 
+                bindtap="onToCommentFirstLevel" 
+                type="info">&nbsp;&nbsp;回复</text>
+               <text
+                style="color:rgb(230, 153, 118)"
+                decode="{{true}}"
+                wx:if="{{ authInfo.uid == userId || userId == item.fromUid}}"
+                data-comment-id="{{item.id}}"
+                data-type="parent" 
+                plain
+                bindtap="onDeleteComments" 
+                type="info">&nbsp;&nbsp;删除</text>
+              </view>
+          </view>
+           <!-- start reply -->
+           <view wx:for="{{item.commentsResultChilds}}" wx:for-item="child" wx:key="index" >
+             <!-- 基础信息 -->
+              <view class="bg-gray padding-sm radius margin-top-sm  text-sm"  >
+                <view class="flex">
+                  <view>{{child.nickName}}：</view>
+                  <view class="flex-sub">{{child.content}}</view>
+                </view>
+              </view>
+              <!-- 时间 -->
+              <view class="margin-top-sm flex justify-between">
+                <view class="text-gray text-df">{{dateutils.dateTransfer(child.createTime)}}
+                <text
+                style="color:rgb(230, 153, 118)"
+                decode="{{true}}"
+                wx:if="{{ authInfo.uid == userId || userId == child.fromUid}}"
+                data-comment-id="{{child.id}}" 
+                data-type="child"
+                plain
+                bindtap="onDeleteComments" 
+                type="info">&nbsp;&nbsp;删除</text>
+                </view>
+              </view>
+          </view>
+          <!-- end reply-->
+        </view>
+      </view>
+       <!-- 评论展示区结束 -->
+    </view>
+  </view>
+</view>
+
+
+
+
+   <!-- 底部栏 -->
+    <view class="article-footer" > 
+      
+       <!-- 评论 -->
+     
+       <image class="auth-header" src="{{userInfo.avatarUrl}}" ></image>
+       <input
+          bindinput="saveTempComments"
+          class="input-comment"
+          value="{{myComments}}"
+          placeholder="{{placeholderForComments}}"
+        />
+
+
+        <!-- 提交评论按钮 -->
+        <van-button 
+          custom-style="position: absolute;right:0;top:10px;" 
+          type="primary" 
+          round="true" 
+          size="small"
+          color="palevioletred" 
+          loading="{{loading}}"
+          form-type="submit"
+          bind:click="validateComment">评论
+          </van-button>
+         
+    </view>
+ <!-- 点赞图标 -->
+  <van-button 
+        size="mini"
+        round
+        bind:click="onPraising"
+        color="rgb(161, 112, 216, 0)"
+        data-praise-status="{{praiseStatus}}"
+        custom-style="width:50px;height:50px;position: fixed;right:20px;bottom:70px;"
+        type="primary">
+        点赞
+       <van-icon class="" 
+        name="{{praiseStatus === 1 ?'/image/like-active.png':'/image/like.png' }}" 
+        size="25px"/>
+        </van-button>
+<!-- 回到顶部图标 -->
+<cover-view class="cover-view-top" wx:if="{{floorstatus}}" >
+    <cover-image bindtap="onToTop"  src="/image/vertical-align-top.png" ></cover-image>
+</cover-view>

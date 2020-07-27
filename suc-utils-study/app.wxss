@@ -1,0 +1,28 @@
+/* pages/community/community.wxss */
+/*  colorui  */
+@import "./components/colorui/main.wxss";
+@import "./components/colorui/icon.wxss";
+@import "./components/colorui/animation.wxss";
+/**基础风格样式**/
+@import './components/towxml/style/main.wxss';
+ 
+ 
+/**如果页面有动态主题切换，则需要将使用到的样式全部引入**/
+ 
+/**主题配色（浅色样式）**/
+@import './components/towxml/style/theme/light.wxss';
+ 
+/**主题配色（深色样式）**/
+@import './components/towxml/style/theme/dark.wxss';
+
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+

@@ -1,0 +1,5 @@
+<!--pages/knowloage/knowloage.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">知识星球</view>
+</cu-custom>

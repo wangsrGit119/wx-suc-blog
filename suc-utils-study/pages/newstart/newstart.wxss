@@ -1,0 +1,18 @@
+/* pages/newstart/newstart.wxss */
+.item-title{
+  margin-top:5px;
+  background:linear-gradient(to right,rgb(223, 226, 215),rgb(132, 223, 154));
+  border-radius: 10px;
+}
+.item-body{
+  margin: 5px;
+  width: 97%;
+  padding: 10px;
+  font-size: 12px;
+  background:linear-gradient(to right,#7A88FF,#7AFFAF);
+  box-shadow: 0 8px 16px 0 rgba(167, 157, 157, 0.39), 0 6px 20px 0 rgba(152, 153, 163, 0.384);
+  border-radius: 10px;
+}
+.item-body .body-line{
+ margin: 5px;
+}
