@@ -8,7 +8,8 @@
 
 ####  部分截图
 
-![](https://cdn.jsdelivr.net/gh/wangsrGit119/wangsr-image-bucket/img-article/wx_blog_202012010001.png)
-![](https://cdn.jsdelivr.net/gh/wangsrGit119/wangsr-image-bucket/img-article/wx_blog_202012010002.png)
+<img align="left" height="200px" src="https://cdn.jsdelivr.net/gh/wangsrGit119/wangsr-image-bucket/img-article/wx_blog_202012010001.png" />
+<img align="center" height="200px" src="https://cdn.jsdelivr.net/gh/wangsrGit119/wangsr-image-bucket/img-article/wx_blog_202012010002.png" />
+
 
 
