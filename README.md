@@ -4,6 +4,11 @@
 > 微信小程序搜索： `苏克分享`
 > 
 > 后端sql文件：公众号：`苏克分享` 后台回复 `博客小程序sql`
+> 
+
+####  旧版本已经重写，新版本仓库请移步下面
+
+[https://github.com/wangsrGit119/mini-blog-halo](https://github.com/wangsrGit119/mini-blog-halo)
 
 #### 联系方式  
 > 有问题加我微信：sucfufufu620119
