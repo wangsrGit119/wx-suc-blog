@@ -1,7 +1,7 @@
 # wx-suc-blog
 
 #### wx online address 微信小程序体验地址
-> 微信小程序搜索： `苏克分享`
+> **重要：此本版已经不再维护，新版本请移步仓库：[https://github.com/wangsrGit119/mini-blog-halo](https://github.com/wangsrGit119/mini-blog-halo)**
 > 
 > 后端sql文件：公众号：`苏克分享` 后台回复 `博客小程序sql`
 > 
