@@ -3,7 +3,7 @@
 #### wx online address 微信小程序体验地址
 > **重要：此本版已经不再维护，新版本请移步仓库：[https://github.com/wangsrGit119/mini-blog-halo](https://github.com/wangsrGit119/mini-blog-halo)**
 > 
-> 后端sql文件：公众号：`苏克分享` 后台回复 `博客小程序sql`
+> 后端sql文件：公众号：`技术源share` 后台回复 `博客小程序sql`
 > 
 
 ####  旧版本已经重写，新版本仓库请移步下面
